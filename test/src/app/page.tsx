@@ -26,9 +26,9 @@ export default function Home() {
     socketInstance.on('connect', () => {
       console.log('Connected to WebSocket server');
     });
-
+    setSocket(socketInstance);
     return () => {
-      setSocket(socketInstance);
+      setSocket(null);
     };
   }, []);
 
@@ -48,6 +48,7 @@ export default function Home() {
   }, [socket]);
 
   const sendMessage = () => {
+    console.log('Sending message')
     if (socket) {
       console.log(message);
       socket.emit('message', { message: message });
