@@ -42,7 +42,7 @@ export const SocketProvider = ({
     };
 
     useEffect(() => {
-        connectSocket(); // Connect socket when the component mounts
+       if(!isConnected) connectSocket(); // Connect socket when the component mounts
         return () => {
             if (socket) {
                 socket.disconnect();

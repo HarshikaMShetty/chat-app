@@ -1,7 +1,7 @@
 import { useSocket } from "@/app/provider/socket";
 import { useCallback, useEffect, useState } from "react";
 
-export default function useBroadCastSocket(event: string) {
+export default function useBroadCastSocket(event?: string) {
     const { socket, isConnected, connectSocket } = useSocket();
     const [action, setAction] = useState<any>(null);
 
